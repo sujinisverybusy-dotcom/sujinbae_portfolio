@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.site-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-bottom: 1px solid #e0ddd8;
+  flex-shrink: 0;
+}
+
+.site-name {
+  font-family: "EB Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.page-label {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #999;
+}
+
+.gallery-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.image-counter {
+  font-size: 0.75rem;
+  color: #999;
+  letter-spacing: 0.08em;
+}
+
+.image-stage {
+  width: 400px;
+  height: 400px;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.img-hidden {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.img-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.click-hint {
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  font-size: 0.72rem;
+  color: #999;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-stage:hover .click-hint {
+  opacity: 1;
+}
+
+.back-link {
+  font-size: 0.75rem;
+  color: #999;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #1a1a1a;
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 0 16px;
+  }
+  .image-stage {
+    width: 300px;
+    height: 300px;
+  }
+  .gallery-img {
+    width: 300px;
+    height: 300px;
+  }
+}

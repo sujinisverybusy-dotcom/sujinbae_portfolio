@@ -462,3 +462,7 @@ body {
     padding: var(--spacing-lg) var(--spacing-md);
   }
 }
+.site-name {
+  text-decoration: none; /* 이 줄 추가 */
+  color: inherit; /* 이 줄 추가 */
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sujin Bae</title>
+    <link rel="stylesheet" href="gallery_style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="site-header">
+      <span class="site-name">Sujin Bae</span>
+      <span class="page-label">Gallery</span>
+    </header>
+
+    <!-- Gallery -->
+    <main class="gallery-wrap">
+      <div class="image-counter">
+        <span id="currentNum">1</span> / <span id="totalNum">3</span>
+      </div>
+
+      <div class="image-stage" id="imageStage">
+        <img src="" alt="gallery image" id="galleryImg" class="gallery-img" />
+        <div class="click-hint">click to next →</div>
+      </div>
+
+      <a href="index.html" class="back-link">← Back to About</a>
+    </main>
+
+    <script>
+      const images = [
+        "source/gae_01.png",
+        "source/gae_02.png",
+        "source/gae_03.png",
+      ];
+
+      const totalNum = document.getElementById("totalNum");
+      const currentNum = document.getElementById("currentNum");
+      const galleryImg = document.getElementById("galleryImg");
+      const imageStage = document.getElementById("imageStage");
+
+      totalNum.textContent = images.length;
+
+      let order = [...images].sort(() => Math.random() - 0.5);
+      let currentIndex = 0;
+
+      function showImage(index) {
+        galleryImg.classList.remove("img-visible");
+        galleryImg.classList.add("img-hidden");
+
+        setTimeout(() => {
+          galleryImg.src = order[index];
+          currentNum.textContent = index + 1;
+          galleryImg.classList.remove("img-hidden");
+          galleryImg.classList.add("img-visible");
+        }, 300);
+      }
+
+      showImage(currentIndex);
+
+      imageStage.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % order.length;
+        showImage(currentIndex);
+      });
+    </script>
+  </body>
+</html>
